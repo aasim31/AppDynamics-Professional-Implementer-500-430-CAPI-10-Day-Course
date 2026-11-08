@@ -3,7 +3,7 @@
 Free, structured study notes for the **Cisco AppDynamics Professional Implementer** exam (**500-430 CAPI v1.0**), organised as a 10-day classroom-style course. Each day covers a slice of the official exam blueprint with a lesson, a hands-on or "paper" lab, a 10-question practice quiz with answers, a cheat sheet, links to the official documentation, and model answers for the lab.
 
 > Built while preparing for the exam myself. If it helps you, please ⭐ the repo and share it.
-
+> pdf are worth reading which is created for each Day
 -----
 
 ## Exam at a glance
