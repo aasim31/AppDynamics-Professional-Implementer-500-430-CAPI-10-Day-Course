@@ -1,0 +1,749 @@
+{
+  "info": {
+    "_postman_id": "aecab783-94f7-44ab-aedd-5e7b49fe31ca",
+    "name": "AppDynamics Day 9 - Controller APIs",
+    "description": "All Day 9 lab requests (plus the Day 7 Machine Agent listener). Select the 'AppDynamics Lab' environment, run 'Get OAuth token' first.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "1 Authentication",
+      "item": [
+        {
+          "name": "Get OAuth token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/controller/api/oauth/access_token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "api",
+                "oauth",
+                "access_token"
+              ]
+            },
+            "description": "Tests tab saves the token: pm.environment.set(\"token\", pm.response.json().access_token). Token lasts 5 min by default.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{clientName}}@{{account}}",
+                  "type": "text"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "{{clientSecret}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const j = pm.response.json();",
+                  "pm.environment.set(\"token\", j.access_token);",
+                  "pm.test(\"token received\", () => pm.expect(j.access_token).to.be.a(\"string\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List applications (Basic auth)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": "Authorization tab \u2192 Basic Auth: Username {{user}}@{{account}}, Password {{password}}.",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{user}}@{{account}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2 Application Model",
+      "item": [
+        {
+          "name": "List applications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Tiers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/tiers?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "tiers"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Nodes in application",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/nodes?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "nodes"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Nodes in tier",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/tiers/{{tier}}/nodes?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "tiers",
+                "{{tier}}",
+                "nodes"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Business transactions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/business-transactions?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "business-transactions"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Backends",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/backends?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "backends"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "3 Metrics and Snapshots",
+      "item": [
+        {
+          "name": "Browse metric tree",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/metrics?output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "metrics"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": "Add metric-path (e.g. Overall Application Performance) to go one level deeper."
+          }
+        },
+        {
+          "name": "Metric data - all points (rollup=false)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/metric-data?metric-path=Overall Application Performance|Average Response Time (ms)&time-range-type=BEFORE_NOW&duration-in-mins=60&rollup=false&output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "metric-data"
+              ],
+              "query": [
+                {
+                  "key": "metric-path",
+                  "value": "Overall Application Performance|Average Response Time (ms)"
+                },
+                {
+                  "key": "time-range-type",
+                  "value": "BEFORE_NOW"
+                },
+                {
+                  "key": "duration-in-mins",
+                  "value": "60"
+                },
+                {
+                  "key": "rollup",
+                  "value": "false"
+                },
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": "Postman encodes spaces and pipes in the Params tab. Newer Controllers (25.10+): metric-data-v2, same params."
+          }
+        },
+        {
+          "name": "Metric data - one value (rollup=true)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/metric-data?metric-path=Overall Application Performance|Average Response Time (ms)&time-range-type=BEFORE_NOW&duration-in-mins=60&rollup=true&output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "metric-data"
+              ],
+              "query": [
+                {
+                  "key": "metric-path",
+                  "value": "Overall Application Performance|Average Response Time (ms)"
+                },
+                {
+                  "key": "time-range-type",
+                  "value": "BEFORE_NOW"
+                },
+                {
+                  "key": "duration-in-mins",
+                  "value": "60"
+                },
+                {
+                  "key": "rollup",
+                  "value": "true"
+                },
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": "rollup=true is the default."
+          }
+        },
+        {
+          "name": "Metric data - wildcard, every tier",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/metric-data?metric-path=Application Infrastructure Performance|*|Agent|App|Availability&time-range-type=BEFORE_NOW&duration-in-mins=60&output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "metric-data"
+              ],
+              "query": [
+                {
+                  "key": "metric-path",
+                  "value": "Application Infrastructure Performance|*|Agent|App|Availability"
+                },
+                {
+                  "key": "time-range-type",
+                  "value": "BEFORE_NOW"
+                },
+                {
+                  "key": "duration-in-mins",
+                  "value": "60"
+                },
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Request snapshots",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/request-snapshots?time-range-type=BEFORE_NOW&duration-in-mins=60&output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "request-snapshots"
+              ],
+              "query": [
+                {
+                  "key": "time-range-type",
+                  "value": "BEFORE_NOW"
+                },
+                {
+                  "key": "duration-in-mins",
+                  "value": "60"
+                },
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": "maximum-results defaults to 600."
+          }
+        }
+      ]
+    },
+    {
+      "name": "4 Alert and Respond",
+      "item": [
+        {
+          "name": "Health rule violations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/problems/healthrule-violations?time-range-type=BEFORE_NOW&duration-in-mins=60&output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "problems",
+                "healthrule-violations"
+              ],
+              "query": [
+                {
+                  "key": "time-range-type",
+                  "value": "BEFORE_NOW"
+                },
+                {
+                  "key": "duration-in-mins",
+                  "value": "60"
+                },
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Get events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/events?time-range-type=BEFORE_NOW&duration-in-mins=30&event-types=APPLICATION_ERROR,DIAGNOSTIC_SESSION,CUSTOM&severities=INFO,WARN,ERROR&output=JSON",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "time-range-type",
+                  "value": "BEFORE_NOW"
+                },
+                {
+                  "key": "duration-in-mins",
+                  "value": "30"
+                },
+                {
+                  "key": "event-types",
+                  "value": "APPLICATION_ERROR,DIAGNOSTIC_SESSION,CUSTOM"
+                },
+                {
+                  "key": "severities",
+                  "value": "INFO,WARN,ERROR"
+                },
+                {
+                  "key": "output",
+                  "value": "JSON"
+                }
+              ]
+            },
+            "description": "Up to 600 events per call."
+          }
+        },
+        {
+          "name": "Create custom event",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/rest/applications/{{app}}/events?severity=INFO&summary=Release 2.1 deployed&eventtype=CUSTOM&customeventtype=deployment&propertynames=version&propertynames=team&propertyvalues=2.1&propertyvalues=web",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "rest",
+                "applications",
+                "{{app}}",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "INFO"
+                },
+                {
+                  "key": "summary",
+                  "value": "Release 2.1 deployed"
+                },
+                {
+                  "key": "eventtype",
+                  "value": "CUSTOM"
+                },
+                {
+                  "key": "customeventtype",
+                  "value": "deployment"
+                },
+                {
+                  "key": "propertynames",
+                  "value": "version"
+                },
+                {
+                  "key": "propertynames",
+                  "value": "team"
+                },
+                {
+                  "key": "propertyvalues",
+                  "value": "2.1"
+                },
+                {
+                  "key": "propertyvalues",
+                  "value": "web"
+                }
+              ]
+            },
+            "description": "Repeat propertynames/propertyvalues as separate rows, in matching order. Needs the Create Events permission."
+          }
+        }
+      ]
+    },
+    {
+      "name": "5 Config Import Export",
+      "item": [
+        {
+          "name": "Export actions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/actions/{{appId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "actions",
+                "{{appId}}"
+              ]
+            },
+            "description": "Numeric application ID; JSON."
+          }
+        },
+        {
+          "name": "Export one health rule",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/healthrules/{{appId}}?name=PetClinic Response Time",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "healthrules",
+                "{{appId}}"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "PetClinic Response Time"
+                }
+              ]
+            },
+            "description": "XML."
+          }
+        },
+        {
+          "name": "Import health rules",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/controller/healthrules/{{appId}}?overwrite=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "controller",
+                "healthrules",
+                "{{appId}}"
+              ],
+              "query": [
+                {
+                  "key": "overwrite",
+                  "value": "false"
+                }
+              ]
+            },
+            "description": "Body \u2192 form-data, key 'file' of type File. overwrite defaults to false.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6 Machine Agent listener (Day 7)",
+      "item": [
+        {
+          "name": "Post custom metric",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{maListener}}/api/v1/metrics",
+              "host": [
+                "{{maListener}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "metrics"
+              ]
+            },
+            "description": "Full URL http://localhost:8293/api/v1/metrics; Header Content-Type: application/json. Run on the Machine Agent host (localhost only by default).",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[{\"metricName\":\"Custom Metrics|Lab|Orders\",\"aggregatorType\":\"SUM\",\"value\":10}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
