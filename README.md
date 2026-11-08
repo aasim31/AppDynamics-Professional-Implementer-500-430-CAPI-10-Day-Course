@@ -4,7 +4,7 @@ Free, structured study notes for the **Cisco AppDynamics Professional Implemente
 
 > Built while preparing for the exam myself. If it helps you, please ⭐ the repo and share it.
 
----
+-----
 
 ## Exam at a glance
 
