@@ -22,7 +22,8 @@ Free, structured study notes for the **Cisco AppDynamics Professional Implemente
 | 4 | Post-Deployment Verification | 5% | 3, 8 |
 | 5 | APIs | 20% | 9 |
 
-Official exam page: <https://cisco.com/site/us/en/learn/training-certifications/exams/capi.html> · Exam topics (PDF): <https://bxin.cisco.com/c/dam/en_us/training-events/exams/capi.pdf>
+Official exam page: <https://cisco.com/site/us/en/learn/training-certifications/exams/capi.html> · 
+Exam topics (PDF): <https://bxin.cisco.com/c/dam/en_us/training-events/exams/capi.pdf>
 
 ---
 
