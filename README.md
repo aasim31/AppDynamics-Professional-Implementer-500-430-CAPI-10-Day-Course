@@ -28,7 +28,7 @@ Official exam page: <https://cisco.com/site/us/en/learn/training-certifications/
 
 ## Course content
 
-Start with the **[10-day course outline](course/00-course-outline.md)**, then work through one day at a time. Every lesson reads directly on GitHub — click a topic to open it. A PDF copy of each day is there if you prefer to print or study offline.
+Start with the **[10-day course outline](00-Course-Outline.md)**, then work through one day at a time. Every lesson reads directly on GitHub — click a topic to open it. A PDF copy of each day is there if you prefer to print or study offline.
 
 | Day | Topic (read online) | Blueprint | Offline |
 |---|---|---|---|
@@ -88,9 +88,8 @@ Found an error or an outdated fact? Open an **issue** or a **pull request** with
 
 ```
 .
+├── 00-Course-Outline.md       ← start here
 ├── README.md                  ← you are here
-├── course/
-│   └── 00-course-outline.md   ← start here
 ├── days/
 │   ├── day-01-apm-concepts-and-architecture.md
 │   ├── ...

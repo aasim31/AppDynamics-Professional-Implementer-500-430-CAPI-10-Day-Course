@@ -1,6 +1,6 @@
 # AppDynamics Professional Implementer (500-430 CAPI) — 10-Day Course
 
-[🏠 Home](../README.md) · [Day 1 →](../days/day-01-apm-concepts-and-architecture.md) · [📄 PDF version](../pdf/00_Course_Outline_10-Day_Plan.pdf)
+[🏠 Home](README.md) · [Day 1 →](days/day-01-apm-concepts-and-architecture.md) · [📄 PDF version](pdf/00_Course_Outline_10-Day_Plan.pdf)
 
 This page is the course map: what each day covers, the labs, and the facts you must know. The full lesson for each day is linked under its heading.
 
@@ -48,24 +48,24 @@ Days 2–5 cover on-prem planning and installation, Days 6–7 cover agents, Day
 
 | Day | Theme | Topics | Lab type |
 | --- | --- | --- | --- |
-| 1 | [APM concepts and architecture](../days/day-01-apm-concepts-and-architecture.md) | Foundation for all domains | SaaS tour |
-| 2 | [Pre-deployment planning and sizing](../days/day-02-pre-deployment-planning-and-sizing.md) | 1.1, 1.2, 1.3, 1.5 | Sizing exercise |
-| 3 | [Controller install and Enterprise Console](../days/day-03-controller-install-and-enterprise-console.md) | 2.1, 4.3 | Paper lab |
-| 4 | [SSL, HA, self-monitoring, Controller upgrade](../days/day-04-ssl-ha-self-monitoring-upgrades.md) | 2.2, 2.3, 2.4, 2.6 | Paper lab |
-| 5 | [Events Service and EUM Server](../days/day-05-events-service-and-eum-server.md) | 1.4, 2.5, 2.7, 2.8, 3.7 | Paper lab |
-| 6 | [Java and .NET agents, custom correlation](../days/day-06-java-and-dotnet-agents-custom-correlation.md) | 1.6, 3.1, 3.2, 3.9, 3.10 | SaaS hands-on |
-| 7 | [Machine, Database, Browser, Mobile agents](../days/day-07-machine-database-browser-mobile-agents.md) | 3.3, 3.4, 3.5, 3.6, 3.8, 3.11 | SaaS hands-on |
-| 8 | [Post-deployment verification and RBAC](../days/day-08-verification-rbac-and-revision.md) | 4.1, 4.2, 4.3 | SaaS hands-on |
-| 9 | [APIs and extensions](../days/day-09-apis-and-extensions.md) | 5.1–5.6 | SaaS + curl |
+| 1 | [APM concepts and architecture](days/day-01-apm-concepts-and-architecture.md) | Foundation for all domains | SaaS tour |
+| 2 | [Pre-deployment planning and sizing](days/day-02-pre-deployment-planning-and-sizing.md) | 1.1, 1.2, 1.3, 1.5 | Sizing exercise |
+| 3 | [Controller install and Enterprise Console](days/day-03-controller-install-and-enterprise-console.md) | 2.1, 4.3 | Paper lab |
+| 4 | [SSL, HA, self-monitoring, Controller upgrade](days/day-04-ssl-ha-self-monitoring-upgrades.md) | 2.2, 2.3, 2.4, 2.6 | Paper lab |
+| 5 | [Events Service and EUM Server](days/day-05-events-service-and-eum-server.md) | 1.4, 2.5, 2.7, 2.8, 3.7 | Paper lab |
+| 6 | [Java and .NET agents, custom correlation](days/day-06-java-and-dotnet-agents-custom-correlation.md) | 1.6, 3.1, 3.2, 3.9, 3.10 | SaaS hands-on |
+| 7 | [Machine, Database, Browser, Mobile agents](days/day-07-machine-database-browser-mobile-agents.md) | 3.3, 3.4, 3.5, 3.6, 3.8, 3.11 | SaaS hands-on |
+| 8 | [Post-deployment verification and RBAC](days/day-08-verification-rbac-and-revision.md) | 4.1, 4.2, 4.3 | SaaS hands-on |
+| 9 | [APIs and extensions](days/day-09-apis-and-extensions.md) | 5.1–5.6 | SaaS + curl |
 | 10 | Mock exam and revision (coming soon) | All | 55-question mock |
 
 ## Day 1 — APM concepts and architecture
 
-📖 **Full lesson, lab and quiz:** [Day 1 notes](../days/day-01-apm-concepts-and-architecture.md)
+📖 **Full lesson, lab and quiz:** [Day 1 notes](days/day-01-apm-concepts-and-architecture.md)
 
 By the end of Day 1 you can explain how the agents, the Controller and the supporting servers fit together, using the same terms the exam uses.
 
-![On-prem platform architecture: agents report to the Controller; browsers send beacons to the EUM Server](../images/day01-platform-architecture.png)
+![On-prem platform architecture: agents report to the Controller; browsers send beacons to the EUM Server](images/day01-platform-architecture.png)
 
 All data flows into the Controller or the EUM Server. The Enterprise Console installs the Controller and Events Service, but not the EUM Server.
 
@@ -100,7 +100,7 @@ All data flows into the Controller or the EUM Server. The Enterprise Console ins
 
 ## Day 2 — Pre-deployment planning and sizing
 
-📖 **Full lesson, lab and quiz:** [Day 2 notes](../days/day-02-pre-deployment-planning-and-sizing.md)
+📖 **Full lesson, lab and quiz:** [Day 2 notes](days/day-02-pre-deployment-planning-and-sizing.md)
 
 By the end of Day 2 you can pick a Controller profile, a deployment mode and an Events Service layout from a scenario. That is the heart of Domain 1 (25%).
 
@@ -144,7 +144,7 @@ Source: [Controller Sizing, 26.9.0](https://help.splunk.com/en/appdynamics-on-pr
 
 ## Day 3 — Controller install and Enterprise Console
 
-📖 **Full lesson, lab and quiz:** [Day 3 notes](../days/day-03-controller-install-and-enterprise-console.md)
+📖 **Full lesson, lab and quiz:** [Day 3 notes](days/day-03-controller-install-and-enterprise-console.md)
 
 By the end of Day 3 you can install a Controller three ways (GUI, CLI, silent) and know which admin screen to use for what. This covers blueprint 2.1 and 4.3.
 
@@ -191,7 +191,7 @@ The last command lists every optional install setting. Silent install of the EC 
 
 ## Day 4 — SSL, high availability, self-monitoring, upgrades
 
-📖 **Full lesson, lab and quiz:** [Day 4 notes](../days/day-04-ssl-ha-self-monitoring-upgrades.md)
+📖 **Full lesson, lab and quiz:** [Day 4 notes](days/day-04-ssl-ha-self-monitoring-upgrades.md)
 
 By the end of Day 4 you can secure a Controller with a CA certificate, build an HA pair, monitor the Controller itself and upgrade the platform in the right order. This covers blueprint 2.2, 2.3, 2.4 and 2.6.
 
@@ -251,7 +251,7 @@ If keytool says "Failed to establish chain from reply", import the root and inte
 
 ## Day 5 — Events Service and EUM Server
 
-📖 **Full lesson, lab and quiz:** [Day 5 notes](../days/day-05-events-service-and-eum-server.md)
+📖 **Full lesson, lab and quiz:** [Day 5 notes](days/day-05-events-service-and-eum-server.md)
 
 By the end of Day 5 you can install an Events Service cluster and a production EUM Server, and connect both to the Controller. This covers blueprint 1.4, 2.5, 2.7, 2.8 and 3.7.
 
@@ -318,7 +318,7 @@ Then, in the Administration Console (`admin.jsp`):
 
 ## Day 6 — Java and .NET agents, custom correlation
 
-📖 **Full lesson, lab and quiz:** [Day 6 notes](../days/day-06-java-and-dotnet-agents-custom-correlation.md)
+📖 **Full lesson, lab and quiz:** [Day 6 notes](days/day-06-java-and-dotnet-agents-custom-correlation.md)
 
 By the end of Day 6 you have a Java app and a .NET app reporting to your SaaS Controller, and you know how to upgrade both agents. This covers blueprint 1.6, 3.1, 3.2, 3.9 and 3.10.
 
@@ -368,7 +368,7 @@ Agents link calls across tiers by adding a correlation header to supported proto
 
 ## Day 7 — Machine, Database, Browser and Mobile agents
 
-📖 **Full lesson, lab and quiz:** [Day 7 notes](../days/day-07-machine-database-browser-mobile-agents.md)
+📖 **Full lesson, lab and quiz:** [Day 7 notes](days/day-07-machine-database-browser-mobile-agents.md)
 
 By the end of Day 7 your lab app has server metrics, database visibility and real-user browser data. This covers blueprint 3.3, 3.4, 3.5, 3.6, 3.8 and 3.11. In the blueprint, "EUEM Processor" is the old name for the EUM Server, and "EUEM Agent" is the old name for the JavaScript agent.
 
@@ -419,7 +419,7 @@ By the end of Day 7 your lab app has server metrics, database visibility and rea
 
 ## Day 8 — Post-deployment verification and RBAC
 
-📖 **Full lesson, lab and quiz:** [Day 8 notes](../days/day-08-verification-rbac-and-revision.md)
+📖 **Full lesson, lab and quiz:** [Day 8 notes](days/day-08-verification-rbac-and-revision.md)
 
 By the end of Day 8 you can prove a deployment is healthy and give each team exactly the access it needs. This domain is only 5% of the exam, so the afternoon goes to revising Days 2–5. This covers blueprint 4.1, 4.2 and 4.3.
 
@@ -464,7 +464,7 @@ Also check the license usage page, and the Controller log `<controller_home>/log
 
 ## Day 9 — APIs and extensions
 
-📖 **Full lesson, lab and quiz:** [Day 9 notes](../days/day-09-apis-and-extensions.md)
+📖 **Full lesson, lab and quiz:** [Day 9 notes](days/day-09-apis-and-extensions.md)
 
 By the end of Day 9 you can pull applications, metrics and health rule violations with curl, post a custom event, and explain how alerting and monitoring extensions are installed. APIs are 20% of the exam, so this is a full day. This covers blueprint 5.1–5.6.
 
@@ -586,4 +586,4 @@ Use the official docs as the main textbook, and Cisco's free DevNet labs for ext
 
 ---
 
-[🏠 Home](../README.md) · [Start Day 1 →](../days/day-01-apm-concepts-and-architecture.md)
+[🏠 Home](README.md) · [Start Day 1 →](days/day-01-apm-concepts-and-architecture.md)

@@ -1,6 +1,6 @@
 # Day 1 — APM Concepts and AppDynamics Architecture
 
-[🏠 Home](../README.md) · [← Course outline](../course/00-course-outline.md) · [Day 2 →](day-02-pre-deployment-planning-and-sizing.md) · [📄 PDF version](../pdf/Day01_APM_Concepts_and_Architecture.pdf)
+[🏠 Home](../README.md) · [← Course outline](../00-Course-Outline.md) · [Day 2 →](day-02-pre-deployment-planning-and-sizing.md) · [📄 PDF version](../pdf/Day01_APM_Concepts_and_Architecture.pdf)
 
 Cisco AppDynamics Professional Implementer (500-430 CAPI) · 10-day course · Session notes
 
@@ -276,4 +276,4 @@ Try each question first, then open **Show answer** to check.
 
 ---
 
-[← Course outline](../course/00-course-outline.md) · [🏠 Home](../README.md) · [Day 2 →](day-02-pre-deployment-planning-and-sizing.md)
+[← Course outline](../00-Course-Outline.md) · [🏠 Home](../README.md) · [Day 2 →](day-02-pre-deployment-planning-and-sizing.md)
